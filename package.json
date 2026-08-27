@@ -1,0 +1,14 @@
+{
+  "name": "agent-seshu-rakhi-surprise",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx -y vite --host --open",
+    "build": "npx -y vite build",
+    "preview": "npx -y vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.1"
+  }
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d142c"/>
+      <stop offset="100%" stop-color="#100512"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#bg4)"/>
+  <text x="300" y="180" font-size="64" text-anchor="middle">👑⚡</text>
+  <text x="300" y="270" font-family="'JetBrains Mono', monospace" font-size="22" fill="#ff758c" font-weight="bold" text-anchor="middle">EXHIBIT #004: UNSTOPPABLE DUO</text>
+  <text x="300" y="310" font-family="sans-serif" font-size="15" fill="#a0aec0" text-anchor="middle">Pretending to be civilized human beings</text>
+  <text x="300" y="350" font-family="sans-serif" font-size="13" fill="#ffd700" text-anchor="middle">📸 Replace with images/photo4.jpg</text>
+</svg>

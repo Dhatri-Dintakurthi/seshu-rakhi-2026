@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>📜 OUR LITTLE RAKHI MISSION — Scrapbook Surprise for Seshu 🎀🧿</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="A cute digital scrapbook surprise mission created especially for my brother Seshu on Raksha Bandhan!" />
+  <meta name="theme-color" content="#fffdf8" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- App Stylesheet with Cache-Buster -->
+  <link rel="stylesheet" href="css/style.css?v=12001" />
+</head>
+<body class="phase-1">
+
+  <!-- Particle / FX Canvas Layer (Fixed position overlay) -->
+  <canvas id="fx-canvas"></canvas>
+
+  <!-- Interactive Secret Toast Notification -->
+  <div id="scrapbook-toast">✨ You found a secret!</div>
+
+  <!-- Fixed Top Header Overlay -->
+  <header id="app-header">
+    <div class="header-brand">
+      <span class="classified-badge">📜 RAKHI ALBUM</span>
+      <span id="mission-progress-text" class="classified-badge" style="color: var(--accent-gold); background: rgba(201,168,106,0.12); border-color: var(--accent-gold);">PAGE 01 / 13</span>
+    </div>
+    <div class="header-actions">
+      <button id="btn-mute-toggle" class="btn-icon-toggle" aria-label="Toggle Audio" title="Mute/Unmute Audio">🔊</button>
+    </div>
+    <div class="header-progress-wrap">
+      <div id="mission-progress-fill" class="header-progress-fill"></div>
+    </div>
+  </header>
+
+  <!-- Main Responsive Container centered in middle of screen -->
+  <div id="app-container">
+
+    <!-- ==========================================================================
+         SCREEN 0: SCRAPBOOK COVER LANDING (IMMEDIATELY VISIBLE HERO AT TOP: 0)
+         ========================================================================== -->
+    <section id="screen-opening" class="screen-container active">
+      <div class="scrapbook-page scanline-overlay" style="text-align: center;">
+        <div class="washi-tape-top"></div>
+        <div class="washi-tape-corner"></div>
+
+        <div style="margin-top: 2px; margin-bottom: 6px;">
+          <span class="scrapbook-sticker">✨ TOP SECRET MEMORY ALBUM ✨</span>
+        </div>
+
+        <h1 class="hero-title" style="font-size: 24px; color: var(--accent-rose); margin-bottom: 4px;">
+          OUR LITTLE RAKHI MISSION
+        </h1>
+        
+        <p class="subtitle" style="margin-bottom: 8px; font-size: 12px;">
+          A personal memory album designed especially for my brother... 📖❤️
+        </p>
+
+        <!-- Polaroid Photo Frame of Agent Seshu -->
+        <div class="hero-polaroid-box">
+          <div class="washi-tape-left"></div>
+          <img src="images/photo21.jpg" alt="Agent Seshu" class="hero-polaroid-img" />
+          <div style="font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--text-plum);">
+            AGENT: SESHU 🧿
+          </div>
+          <div style="font-family: var(--font-serif); font-style: italic; font-size: 10.5px; color: var(--text-muted);">
+            "Level 5 Brother — Certified Annoying 😂"
+          </div>
+        </div>
+
+        <!-- Handwritten Sister Note -->
+        <div class="scrapbook-note-card">
+          <p class="handwritten-note">
+            "Hey Seshu 👀 You have been selected for a very special secret Rakhi mission authorized by Dhatri 👑. Are you ready?"
+          </p>
+        </div>
+
+        <!-- Mission Details Tag Grid -->
+        <div class="mission-details-grid">
+          <div class="m-detail-item">
+            <span class="lbl">MISSION ID</span>
+            <span class="val">OPERATION RAKHI 🌸</span>
+          </div>
+          <div class="m-detail-item">
+            <span class="lbl">AUTHORIZED BY</span>
+            <span class="val">DHATRI 👑</span>
+          </div>
+          <div class="m-detail-item">
+            <span class="lbl">SURPRISE STATUS</span>
+            <span class="val">WAITING FOR SESHU... 🎁</span>
+          </div>
+          <div class="m-detail-item">
+            <span class="lbl">BROTHER STATUS</span>
+            <span class="val">BEST BROTHER EVER ❤️</span>
+          </div>
+        </div>
+        
+        <button id="btn-accept-mission" class="btn-primary" style="margin-top: 4px;">
+          START THE MISSION 🫡
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 1: BROTHER VERIFICATION QUIZ (SCRAPBOOK PAGE 02)
+         ========================================================================== -->
+    <section id="screen-quiz" class="screen-container">
+      <div class="scrapbook-page scanline-overlay">
+        <div class="washi-tape-top"></div>
+        <div class="washi-tape-corner"></div>
+
+        <!-- Top Scrapbook Header -->
+        <div style="text-align: center; margin-bottom: 8px;">
+          <span class="scrapbook-sticker">📖 BROTHER CHECK</span>
+          <div style="font-family: var(--font-display); font-size: 11px; font-weight: 700; color: var(--accent-gold); margin-top: 4px;">
+            PAGE 02 — LET'S SEE HOW WELL YOU KNOW YOUR SISTER 👀
+          </div>
+          <div class="handwritten-note" style="font-size: 12px; margin-top: 2px;">
+            "Be honest, Seshu... I'm watching. 😂"
+          </div>
+        </div>
+
+        <!-- Scrapbook Progress Tracker Dots -->
+        <div class="quiz-dots-wrap">
+          <span class="dots-label" id="quiz-question-num">BROTHER CHECK 01 / 07</span>
+          <div class="dots-row" id="quiz-dots-row">
+            <!-- 7 physical sticker dots generated dynamically -->
+          </div>
+        </div>
+
+        <!-- Question Card Sheet -->
+        <div id="quiz-question-wrapper" class="quiz-question-scrapbook-card">
+          <div class="washi-tape-left" style="width: 50px; height: 14px; top: -6px;"></div>
+          <span class="q-badge" id="quiz-question-badge">✍️ QUESTION #01</span>
+          <h2 id="quiz-question-text" class="quiz-question-text">WHO SPENDS MONEY MORE RECKLESSLY?</h2>
+          <p id="quiz-question-note" class="quiz-question-note">"Don't think too hard... you know the truth! 💸"</p>
+        </div>
+
+        <!-- Answer Options Cards Grid -->
+        <div id="quiz-options-container" class="quiz-options-grid">
+          <!-- 4 Scrapbook Answer Cards injected dynamically -->
+        </div>
+
+        <!-- Interactive Feedback & Next Page Button -->
+        <div id="quiz-feedback-box" class="quiz-feedback-box hidden">
+          <div id="quiz-feedback-content"></div>
+          <button id="btn-quiz-next-page" class="btn-primary" style="margin-top: 10px;">
+            NEXT PAGE ➡️
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 2: QUIZ RESULT SCREEN (SCRAPBOOK PAGE 3)
+         ========================================================================== -->
+    <section id="screen-quiz-result" class="screen-container">
+      <div class="scrapbook-page" style="text-align: center;">
+        <div class="washi-tape-top"></div>
+        <div class="scrapbook-sticker" style="margin-bottom: 8px;">🏆 BROTHER CHECK RESULT</div>
+        <h2 id="result-rank-title" class="hero-title">CALCULATING SCORE...</h2>
+
+        <div class="result-ring-wrap">
+          <svg width="125" height="125">
+            <circle cx="62.5" cy="62.5" r="54" stroke="rgba(185,174,220,0.3)" stroke-width="8" fill="none" />
+            <circle id="result-ring-circle" cx="62.5" cy="62.5" r="54" stroke="var(--accent-rose)" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="340" stroke-dashoffset="0" style="transition: stroke-dashoffset 1.5s ease;" />
+          </svg>
+          <div class="result-score-display">
+            <div id="result-score-num" class="score-num">0/7</div>
+            <div class="score-lbl">VERIFIED</div>
+          </div>
+        </div>
+
+        <p id="result-rank-desc" class="subtitle">Analyzing sibling memory database...</p>
+
+        <button data-next-screen class="btn-primary">
+          VIEW SESHU'S REPORT 📊
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 3: SESHU STATISTICS DASHBOARD (BROTHER REPORT)
+         ========================================================================== -->
+    <section id="screen-stats" class="screen-container">
+      <div class="scrapbook-page">
+        <div class="washi-tape-top"></div>
+        <h2 class="hero-title">🧑‍💻 SESHU'S OFFICIAL BROTHER REPORT</h2>
+        <p class="subtitle">Official telemetry report extracted from Dhatri's database.</p>
+
+        <div id="stats-grid-container" class="stats-grid">
+          <!-- Stats progress bars injected dynamically -->
+        </div>
+
+        <div class="rating-stamp-box">
+          <div class="rating-title">OVERALL BROTHER RATING</div>
+          <div class="rating-score">10 / 10 ❤️</div>
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 500;">"Would still choose you again."</div>
+        </div>
+
+        <button data-next-screen class="btn-primary">
+          CONTINUE TO CHALLENGE 🎮
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 4: SIBLING INVESTIGATION REPORT (WHO DOES THIS?)
+         ========================================================================== -->
+    <section id="screen-who-does-this" class="screen-container">
+      <div class="scrapbook-page">
+        <div class="washi-tape-top"></div>
+        <div class="washi-tape-corner"></div>
+
+        <div style="text-align: center; margin-bottom: 8px;">
+          <span class="scrapbook-sticker">🕵️ SIBLING INVESTIGATION REPORT</span>
+        </div>
+
+        <div id="who-game-area" style="width: 100%;">
+          <div class="quiz-progress-header">
+            <span id="who-card-num">CASE #01 OF 05</span>
+            <span>SIBLING DOSSIER</span>
+          </div>
+
+          <div id="who-interactive-card" class="scrapbook-note-card who-interactive-card">
+            <div id="who-statement-text" class="who-statement-text">Loading scenario...</div>
+          </div>
+
+          <div class="who-btns-grid">
+            <button id="btn-who-me" class="btn-secondary">DHATRI 🙋‍♀️</button>
+            <button id="btn-who-seshu" class="btn-secondary">SESHU 🙋‍♂️</button>
+            <button id="btn-who-knows" class="btn-secondary">BOTH 💀</button>
+          </div>
+
+          <div id="who-feedback-box" class="who-feedback-box hidden"></div>
+        </div>
+
+        <div id="who-summary-card" class="hidden" style="text-align: center;">
+          <div class="scrapbook-sticker" style="margin-bottom: 8px;">🚨 CASE CLOSED</div>
+          <h3 class="hero-title" style="font-size: 18px;">VERDICT: EQUALLY SUSPICIOUS 😂</h3>
+          <p class="subtitle">FBI investigation confirms both of you cause equal amounts of sibling chaos.</p>
+          <button data-next-screen class="btn-primary">
+            ENTER EVIDENCE ROOM 🕵️‍♂️
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 5: EVIDENCE ROOM (SCRAPBOOK PHOTO COLLAGE WALL)
+         ========================================================================== -->
+    <section id="screen-evidence" class="screen-container">
+      <div class="scrapbook-page">
+        <div class="washi-tape-top"></div>
+        <h2 class="hero-title">📸 OUR MEMORY FILES</h2>
+        <p class="subtitle">Personal scrapbook photo wall documenting our funniest memories!</p>
+
+        <div id="evidence-gallery-grid" class="evidence-grid">
+          <!-- Polaroid photo cards injected dynamically -->
+        </div>
+
+        <button data-next-screen class="btn-primary">
+          PROCEED TO SECRET CHALLENGE 🔎
+        </button>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal for Evidence Photos -->
+    <div id="evidence-modal" class="modal-overlay">
+      <div class="modal-content-panel">
+        <button id="evidence-modal-close" class="modal-close-btn">&times;</button>
+        <img id="modal-evidence-img" src="" alt="Evidence" />
+        <h3 id="modal-evidence-title" style="font-size: 14px; font-family: var(--font-display); color: var(--text-plum);">EXHIBIT</h3>
+        <p id="modal-evidence-desc" style="font-size: 12px; color: var(--text-muted); margin-top: 3px;"></p>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SCREEN 6: SECRET HIDDEN RAKHI CHALLENGE
+         ========================================================================== -->
+    <section id="screen-hidden-rakhi" class="screen-container">
+      <div class="scrapbook-page" style="text-align: center;">
+        <div class="washi-tape-top"></div>
+        <h2 class="hero-title">🔎 SECRET CHALLENGE</h2>
+        <p class="subtitle">Somewhere around here, a Rakhi is hiding. Find and tap it!</p>
+
+        <div id="hidden-rakhi-area" class="hidden-rakhi-desk">
+          <span class="desk-hint-text">✨ TAP AROUND THE SCRAPBOOK DESK TO FIND IT</span>
+          <div id="hidden-rakhi-target" class="hidden-rakhi-item">
+            <svg viewBox="0 0 100 100" width="36" height="36">
+              <circle cx="50" cy="50" r="40" fill="#c9a86a" stroke="#d98c9a" stroke-width="6"/>
+              <circle cx="50" cy="50" r="24" fill="#d98c9a" />
+              <polygon points="50,20 60,40 80,50 60,60 50,80 40,60 20,50 40,40" fill="#ffffff"/>
+            </svg>
+          </div>
+        </div>
+
+        <div id="hidden-rakhi-success" class="quiz-feedback-box feedback-correct animated bounceIn hidden" style="margin-bottom: 12px;">
+          <div class="fb-title">✨ YOU FOUND IT! ✨</div>
+          <div class="fb-desc">Okay detective Seshu... you may continue! 🕵️</div>
+        </div>
+
+        <button id="btn-hidden-rakhi-continue" data-next-screen class="btn-primary">
+          CONTINUE TO NEXT FILE ➡️
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 7: DO NOT CLICK BUTTON (FUNNY TAPED SCRAPBOOK NOTE)
+         ========================================================================== -->
+    <section id="screen-do-not-click" class="screen-container">
+      <div id="do-not-click-card" class="scrapbook-page dnc-warning-card">
+        <div class="washi-tape-top"></div>
+        <div class="scrapbook-sticker" style="margin-bottom: 8px;">⚠️ IMPORTANT NOTE</div>
+        <h2 class="hero-title" style="color: var(--accent-rose);">DO NOT CLICK THIS BUTTON</h2>
+        <p class="subtitle">Seriously, Seshu. I'm warning you. 👀</p>
+
+        <button id="btn-do-not-click" class="btn-danger-sassy" style="margin: 14px 0;">
+          DON'T CLICK 😈
+        </button>
+
+        <div id="do-not-click-status" class="dnc-status-text"></div>
+
+        <button id="btn-do-not-click-continue" data-next-screen class="btn-primary hidden" style="margin-top: 12px;">
+          OKAY, CONTINUE MISSION 😂
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 8: SCRATCH TO REVEAL MEMORIES (ONE MEMORY AT A TIME)
+         ========================================================================== -->
+    <section id="screen-scratch-memories" class="screen-container">
+      <div class="scrapbook-page">
+        <div class="washi-tape-top"></div>
+        
+        <div style="text-align: center; margin-bottom: 8px;">
+          <span class="scrapbook-sticker" id="scratch-step-badge">✨ MEMORY 1 OF 4</span>
+          <h2 class="hero-title" style="margin-top: 4px;">SCRATCH TO REVEAL</h2>
+          <p class="subtitle">Scratch off the paper cover to unlock this physical memory photo!</p>
+        </div>
+
+        <div id="scratch-cards-grid" class="scratch-cards-container">
+          <!-- Active single scratch canvas card injected dynamically -->
+        </div>
+
+        <button id="btn-scratch-continue" class="btn-primary hidden" style="margin-top: 10px;">
+          NEXT MEMORY ➡️
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 9: SECRET MESSAGE (SCRAPBOOK ENVELOPE)
+         ========================================================================== -->
+    <section id="screen-classified-unlock" class="screen-container">
+      <div class="scrapbook-page" style="text-align: center;">
+        <div class="washi-tape-top"></div>
+        <div class="scrapbook-sticker" style="margin-bottom: 8px;">✉️ A LITTLE SECRET</div>
+        <h2 class="hero-title">ENTER THE SECRET CODE</h2>
+        <p class="subtitle">You've completed all the challenges... enter the secret passcode!</p>
+
+        <div class="code-input-wrapper">
+          <input type="text" id="secret-code-input" class="code-input-field" placeholder="PASSCODE" readonly />
+        </div>
+
+        <div class="keypad-grid">
+          <button class="keypad-btn" data-val="1">1</button>
+          <button class="keypad-btn" data-val="2">2</button>
+          <button class="keypad-btn" data-val="3">3</button>
+          <button class="keypad-btn" data-val="4">4</button>
+          <button class="keypad-btn" data-val="5">5</button>
+          <button class="keypad-btn" data-val="6">6</button>
+          <button class="keypad-btn" data-val="7">7</button>
+          <button class="keypad-btn" data-val="8">8</button>
+          <button class="keypad-btn" data-val="9">9</button>
+          <button class="keypad-btn" data-val="CLR" style="color: var(--accent-rose);">CLR</button>
+          <button class="keypad-btn" data-val="0">0</button>
+          <button class="keypad-btn" data-val="DEL" style="color: var(--accent-gold);">DEL</button>
+        </div>
+
+        <div id="code-feedback-msg" class="code-feedback"></div>
+
+        <button id="btn-submit-code" class="btn-primary">
+          UNLOCK SURPRISE 🔓
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 10: HANDWRITTEN LETTER FOR SESHU
+         ========================================================================== -->
+    <section id="screen-letter" class="screen-container">
+      <div class="parchment-letter-card">
+        <div class="washi-tape-top"></div>
+        <div class="letter-header-icon">💌</div>
+        <div style="font-family: var(--font-display); font-size: 11px; color: var(--accent-gold); font-weight: 700; text-align: center; margin-bottom: 6px;">FOR SESHU ❤️</div>
+        <div id="letter-salutation" class="letter-salutation">Dear Seshu,</div>
+        <div id="letter-body-paragraphs" class="letter-body">
+          <!-- Letter body injected dynamically from config -->
+        </div>
+        <div id="letter-closing" class="letter-closing">
+          With all my love,<br><strong>Dhatri</strong> ❤️
+        </div>
+      </div>
+
+      <button data-next-screen class="btn-primary">
+        OPEN RAKHI CEREMONY 🧿
+      </button>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 11: RAKHI CEREMONY INTERACTION (EMOTIONAL HIGHLIGHT)
+         ========================================================================== -->
+    <section id="screen-rakhi-moment" class="screen-container">
+      <div class="scrapbook-page rakhi-moment-wrap scanline-overlay">
+        <div class="washi-tape-top"></div>
+        <div class="washi-tape-corner"></div>
+
+        <!-- Top Header & Date Stamp -->
+        <div style="text-align: center; margin-bottom: 6px;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 4px;">
+            <span class="scrapbook-sticker">🎀 RAKHI CEREMONY</span>
+            <span class="scrapbook-sticker" style="background: rgba(201,168,106,0.12); color: var(--accent-gold); border-color: var(--accent-gold);">RAKHI DAY • 2026</span>
+          </div>
+          <h2 id="rakhi-headline" class="hero-title" style="font-size: 22px; color: var(--accent-rose);">
+            HAPPY RAKSHA BANDHAN, SESHU! 🧿❤️
+          </h2>
+          <p id="rakhi-subtext" class="subtitle" style="font-size: 12px; margin-bottom: 2px;">
+            "One final mission..."
+          </p>
+          <div class="handwritten-note" style="font-size: 12px; color: var(--text-handwritten);">
+            "Okay Seshu... this one is important. ❤️"
+          </div>
+        </div>
+
+        <!-- Interactive Rakhi Tying Canvas Container -->
+        <div id="rakhi-ceremony-stage" class="rakhi-ceremony-stage">
+          <!-- Background Wrist Illustration -->
+          <div class="wrist-illustration">
+            <svg viewBox="0 0 240 180" class="wrist-svg">
+              <defs>
+                <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#f7dfd3"/>
+                  <stop offset="100%" stop-color="#ebd0c2"/>
+                </linearGradient>
+                <linearGradient id="sleeveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#b9aedc"/>
+                  <stop offset="100%" stop-color="#d98c9a"/>
+                </linearGradient>
+              </defs>
+              
+              <!-- Arm / Sleeve -->
+              <rect x="0" y="55" width="70" height="70" rx="10" fill="url(#sleeveGrad)" opacity="0.9" />
+              <path d="M 65 55 Q 70 55 70 60 L 70 120 Q 70 125 65 125 Z" fill="rgba(255,255,255,0.4)" />
+              
+              <!-- Wrist / Hand Shape -->
+              <path d="M 70 60 L 160 62 Q 185 65 200 80 Q 215 95 200 110 Q 185 120 L 70 120 Z" fill="url(#skinGrad)" stroke="#e2c4b5" stroke-width="2" />
+              <!-- Hand Lines -->
+              <path d="M 175 75 Q 185 90 175 105" fill="none" stroke="rgba(217, 140, 154, 0.4)" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+
+          <!-- Animated SVG Rakhi Threads Wrapping Around Wrist -->
+          <svg id="rakhi-thread-svg" class="rakhi-thread-svg" viewBox="0 0 240 180">
+            <!-- Back Thread (behind wrist) -->
+            <path id="thread-back" class="thread-path-back" d="M 50 90 Q 115 50 125 90" fill="none" stroke="#c9a86a" stroke-width="5" stroke-dasharray="160" stroke-dashoffset="160" stroke-linecap="round" />
+            <!-- Front Thread (wrapping over wrist) -->
+            <path id="thread-front" class="thread-path-front" d="M 125 90 Q 135 130 200 90" fill="none" stroke="#d98c9a" stroke-width="4" stroke-dasharray="160" stroke-dashoffset="160" stroke-linecap="round" />
+            <!-- Tied Knot -->
+            <circle id="thread-knot" cx="125" cy="90" r="0" fill="#c9a86a" stroke="#ffffff" stroke-width="2" style="transition: r 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);" />
+          </svg>
+
+          <!-- Interactive Rakhi Medallion (Floating Beside Wrist initially) -->
+          <div id="rakhi-medallion" class="rakhi-medallion rakhi-idle">
+            <svg viewBox="0 0 100 100" class="medallion-svg">
+              <!-- Outer Gold Starburst -->
+              <circle cx="50" cy="50" r="46" fill="#c9a86a" opacity="0.3" />
+              <circle cx="50" cy="50" r="40" fill="#c9a86a" stroke="#ffffff" stroke-width="3" />
+              <circle cx="50" cy="50" r="32" fill="#d98c9a" />
+              <!-- Floral Star Center -->
+              <polygon points="50,20 60,38 80,50 60,62 50,80 40,62 20,50 40,38" fill="#ffffff"/>
+              <circle cx="50" cy="50" r="14" fill="#f5e6b3" stroke="#c9a86a" stroke-width="2" />
+              <circle cx="50" cy="50" r="6" fill="#d98c9a" />
+            </svg>
+          </div>
+
+          <!-- Floating Sparkle Particles Container -->
+          <div id="rakhi-sparkles-container" class="rakhi-sparkles-container"></div>
+        </div>
+
+        <!-- Instructional Subtext -->
+        <div id="rakhi-instruction-text" class="handwritten-note" style="font-size: 12px; margin-bottom: 8px;">
+          "Tap the Rakhi when you're ready 👀"
+        </div>
+
+        <!-- Action Button (TIE THE RAKHI 🎀) -->
+        <div id="rakhi-action-area" style="width: 100%;">
+          <button id="btn-tie-rakhi" class="btn-primary" style="margin-bottom: 10px;">
+            TIE THE RAKHI 🎀✨
+          </button>
+        </div>
+
+        <!-- Success Reveal Area (Hidden initially) -->
+        <div id="rakhi-success-area" class="hidden" style="width: 100%; text-align: center; margin-top: 6px;">
+          <div class="scrapbook-sticker" style="margin-bottom: 6px; background: rgba(76,175,80,0.1); color: #2e7d32; border-color: #4caf50;">
+            🎀 RAKHI SUCCESSFULLY TIED
+          </div>
+          <p style="font-family: var(--font-serif); font-style: italic; font-size: 13px; color: var(--text-handwritten); margin-bottom: 10px;">
+            "Mission accomplished, Seshu. ❤️"
+          </p>
+
+          <button id="btn-open-final-note" class="btn-primary" style="margin-bottom: 10px;">
+            💌 OPEN YOUR FINAL NOTE
+          </button>
+        </div>
+
+        <!-- Personal Scrapbook Note (Hidden initially) -->
+        <div id="rakhi-personal-note-card" class="scrapbook-note-card hidden animated popIn" style="text-align: center; background: #ffffff; padding: 14px; position: relative;">
+          <div class="washi-tape-top" style="width: 60px;"></div>
+          <div style="font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--accent-rose); margin-bottom: 6px;">
+            💌 A LITTLE NOTE
+          </div>
+          <p class="handwritten-note" style="font-size: 14px; line-height: 1.5; color: var(--text-plum);">
+            "You're stuck with me forever.<br>
+            No returns. No exchanges. No refunds! 😂❤️"
+          </p>
+
+          <!-- Extra Hidden PS Note (Slides out) -->
+          <div id="rakhi-ps-hidden-note" class="handwritten-note hidden animated fadeIn" style="margin-top: 10px; padding-top: 8px; border-top: 1.5px dashed var(--border-gold); color: var(--accent-gold); font-weight: 600; font-size: 12.5px;">
+            P.S. You can annoy me for another year! 😂❤️
+          </div>
+        </div>
+
+        <!-- Polaroid Memory Photo -->
+        <div id="rakhi-polaroid-box" class="polaroid-card hidden" style="margin-top: 12px; margin-bottom: 10px;">
+          <div class="polaroid-badge">BEST PHOTO TOGETHER</div>
+          <div class="polaroid-img-wrapper">
+            <img id="rakhi-together-photo" src="images/photo21.jpg" alt="Brother Sister Together" class="polaroid-img" />
+          </div>
+          <div class="polaroid-caption">
+            <h3>BEST BROTHER EVER</h3>
+            <p>"No matter how annoying you are, you're still my favorite."</p>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div id="rakhi-footer-nav" class="hidden" style="display: flex; gap: 8px; width: 100%; margin-top: 8px;">
+          <button id="btn-replay-rakhi" class="btn-secondary" style="flex: 1;">
+            REPLAY 🔄
+          </button>
+          <button id="btn-rakhi-moment-continue" data-next-screen class="btn-primary" style="flex: 1.5;">
+            VIEW MISSION DASHBOARD 📋
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 12: MISSION COMPLETE CHECKLIST
+         ========================================================================== -->
+    <section id="screen-mission-complete" class="screen-container">
+      <div class="scrapbook-page" style="text-align: center;">
+        <div class="washi-tape-top"></div>
+        <div class="scrapbook-sticker" style="margin-bottom: 8px;">🎊 MISSION STATUS: SUCCESSFUL</div>
+        <h2 class="hero-title">MISSION COMPLETE</h2>
+        <p class="subtitle">13 / 13 MEMORIES UNLOCKED</p>
+
+        <div class="checklist-container">
+          <div class="mission-check-item">
+            <span class="chk-icon">💗</span>
+            <span>Brother Identity Verification</span>
+          </div>
+          <div class="mission-check-item">
+            <span class="chk-icon">💗</span>
+            <span>Sibling Sarcasm Challenge</span>
+          </div>
+          <div class="mission-check-item">
+            <span class="chk-icon">💗</span>
+            <span>Evidence Room Audit</span>
+          </div>
+          <div class="mission-check-item">
+            <span class="chk-icon">💗</span>
+            <span>Hidden Rakhi Secret Object</span>
+          </div>
+          <div class="mission-check-item">
+            <span class="chk-icon">💗</span>
+            <span>Scratch Memory Unlock</span>
+          </div>
+          <div class="mission-check-item">
+            <span class="chk-icon">💗</span>
+            <span>Rakhi Thread Tied</span>
+          </div>
+        </div>
+
+        <button id="btn-mission-complete-finale" data-next-screen class="btn-primary hidden">
+          TRIGGER FINAL SURPRISE 🎁
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SCREEN 13: GRAND FINALE (LAST PAGE OF THE SCRAPBOOK)
+         ========================================================================== -->
+    <section id="screen-finale" class="screen-container">
+      <div class="scrapbook-page finale-card">
+        <div class="washi-tape-top"></div>
+        <div style="font-size: 36px; margin-bottom: 6px;">🎉🧿👑</div>
+        <h2 id="finale-headline" class="hero-title" style="font-size: 22px;">HAPPY RAKSHA BANDHAN, SESHU!</h2>
+        <p id="finale-subtext" class="subtitle">You're stuck with Dhatri forever. No returns. No exchanges. No refunds! 😂</p>
+
+        <div id="finale-ps-text" class="finale-ps-box">
+          P.S. Dhatri still spends more money than you! 💸😌 So... YOU OWE ME A TREAT. 🍕🧋🎉
+        </div>
+
+        <button onclick="App.goToScreen(0);" class="btn-secondary" style="margin-top: 8px;">
+          REPLAY MISSION 🔄
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- JavaScript Modules with Cache-Busters -->
+  <script src="js/config.js?v=12001"></script>
+  <script src="js/audio.js?v=12001"></script>
+  <script src="js/confetti.js?v=12001"></script>
+  <script src="js/scratch.js?v=12001"></script>
+  <script src="js/app.js?v=12001"></script>
+</body>
+</html>
